@@ -1,4 +1,73 @@
-// constructor function
+// constructor function:Constructor Functions: Functions like String, Number, Object, Array, Boolean, Date, Function, and RegExp are all constructor functions in JavaScript.
+// Behavior with and without new:
+// When used without new, these constructors behave like conversion functions or object wrappers (returning primitive values or wrapped objects).
+// When used with new, they create new objects (like a String object, Number object, Array object, etc.).
+// Can we call them constructor functions?: Yes, they are constructor functions. The new keyword is optional when calling these functions, but they will behave as constructors when used with new (creating new instances).
+// Conclusion
+// These functions can be called constructor functions even without the new keyword, but their behavior changes. Without new, they often return primitive values or wrapped objects, and with new, they return actual object instances.
+// JavaScript provides flexibility in how these constructor functions are invoked, and understanding the distinction can help prevent confusion when using them in your code.
+
+//CONSTRUCTOR FUNCTION  WITHOUT  "new"  KEYWORD  :  returns primitive  value (data)
+//CONSTRUCTOR FUNCTION  WITH  "new"   keyword:  returns actual  object  instances.
+
+// OBJECT   CONSTRUCTOR  VS  CONSTRUCTOR FUNCTION..
+
+// 	Object Constructor (Object())	:	1)Creates a simple object or wraps a primitive value into an object.
+//2)When you need a simple object or want to wrap primitive values.
+//3) without "new"  keyword...     let obj = Object('hello');
+
+
+let obj = {}; console.log(obj,typeof obj);
+let obj2 = Object(); console.log(obj2,typeof obj2);
+
+
+let func = function(){} ; console.log(func,typeof func);
+let func2 = Function(); console.log(func2,typeof func2);
+
+let str = "123"; console.log(str,typeof str);
+let str2 = String(123); console.log(str2,typeof str2);
+
+// the above code all are equivalent to each other just a different way of writing
+
+
+
+// Function Constructor (Custom Constructor):When you need multiple instances of an object with custom properties and methods....Should be called with new to create instances of a custom object  ..  let car = new Car('Toyota', 'Corolla');
+
+
+// Both the Object() constructor and function constructors are important tools in JavaScript. The Object() constructor is typically used for basic object creation or wrapping, while function constructors are more useful for creating complex objects with shared properties and methods.
+
+
+// You're right to some extent, but there are nuances that differentiate Object constructor from global built-in functions in JavaScript. Let's break it down for clarity.
+
+// Is the Object() Constructor the Same as a Global Built-in Function?
+// In JavaScript, the Object constructor is indeed a built-in function, and it can be used to create objects. However, not all global functions are constructors.
+
+// The Object constructor is a special type of function that is designed to create instances of the Object type.
+
+// In general, JavaScript has both constructors and normal functions, and the distinction lies in how they are intended to be used. Let’s break it down:
+
+// What Makes the Object Constructor Special?
+// The Object constructor is both a global built-in function and a constructor function:
+
+// Global Built-in Function: In JavaScript, Object is a global function (it's built into the language). You can call Object() directly without needing any object or class to reference it.
+// Constructor: When used with the new keyword, Object() acts as a constructor, creating a new object (or wrapping a primitive value in an object).
+// javascript
+// Copy code
+
+
+// Conclusion: Object Constructor and Global Built-in Functions
+// Object() Constructor is a global built-in function in JavaScript that can be called as a normal function or as a constructor (with new).
+// Global Built-in Functions are a broad category, and constructors are a specific type of global function. Some of the global functions like Object(), Array(), and Date() are constructors, meaning they are intended to create objects when used with the new keyword.
+// So, while the Object() constructor is a global built-in function, not all global built-in functions are constructors. Some are simply utility functions (like parseInt() or Math.max()) that don't create objects. In other words, the term "constructor" refers to a specific role that a function serves (creating new instances of an object), not just its position in the global scope.
+
+// Summary:
+// Object constructor is both a global built-in function and a constructor function. When called with new, it creates an empty object, and without new, it can be used to wrap a primitive value into an object.
+// Global built-in functions can be both constructors (like Object(), Array(), Date()) and regular functions (like parseInt(), Math.max()).
+// Constructors are a special subset of functions in JavaScript that create objects, and they are typically used with new to create instances.
+
+
+
+
 
 let construct = new Object([12,434,"suman"]);
 console.log(construct,typeof construct);
@@ -71,3 +140,6 @@ let regex = new RegExp('^[a-zA-Z]+$');
 // Creates a regular expression object
 console.log(regex,typeof regex);  // Output: /^[a-zA-Z]+$/
 
+
+let str = Object(1223);
+console.log(str,str instanceof Number)
