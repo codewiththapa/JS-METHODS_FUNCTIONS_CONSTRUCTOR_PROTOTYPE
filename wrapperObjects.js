@@ -93,3 +93,61 @@ console.log(str);
 
 // String(123) performs an explicit type conversion (i.e., explicit wrapping) and converts the number 123 into a primitive string ("123").
 // This is not creating an actual wrapper object like new String("123") would. It's just returning the string primitive "123".
+
+
+
+// Implicit Wrapping vs. Explicit Conversion:
+
+// Implicit Wrapping: When you directly interact with a primitive type and JavaScript automatically converts it into an object wrapper to give you access to its methods, like this:
+
+
+let num = 123;
+console.log(num.toString());  // Implicitly converts the primitive 'num' to a Number object temporarily
+
+
+
+// Explicit Conversion: When you explicitly convert a primitive value to another type using functions like String(), Number(), or Boolean(), like this:
+
+let str = String(123);  // Explicit conversion to string
+console.log(str);  // "123"
+
+
+
+
+//implicit wrapper object :
+
+let num = 12;
+console.log(num , num instanceof Number)
+
+//Explict wrapper object : Global  built in function , constructor, Object constructor ();
+
+let num2 = Number(true);
+console.log(num2 , num2 instanceof Number,num2.valueOf());
+
+
+let num3 = Number("string");
+console.log(num3 , num3 instanceof Number,num3.valueOf());
+
+// to get the value   "valueOf()" is a method of Number() constructor,Global built in function , EXPLICIT TYPE CASTING , EXPLICT WRAPPER OBJECT
+console.log(Number(13).valueOf(),  Number(false).valueOf().toString());
+
+// toString()  Number(), object constructor method,global built in function
+
+console.log(Number(false).toString());
+
+// Explicit Object wrapper   --  
+let wrapper =  Boolean(0);
+console.log(wrapper, wrapper instanceof Boolean, wrapper.valueOf());
+console.log(wrapper.toString());
+
+// Boolean()  constructo   valueof()   and  toString()  methods
+
+// Explicit Object wrapper  new Boolean.
+
+let expli = new Boolean("string");
+console.log(expli, expli instanceof Boolean, expli.valueOf());
+
+
+
+
+
