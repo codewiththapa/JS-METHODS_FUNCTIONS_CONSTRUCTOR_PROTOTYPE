@@ -1,6 +1,61 @@
 // In JavaScript, constructors are typically written as regular functions. When they are invoked with the new keyword, they act as constructors.
 
 
+// wrapper object is not a type conversion in javascript..
+
+//Type conversion.. implicitly(corecion=forcefully)... Type casting conversion(explicitly)  data types conversion
+
+// Type conversion explicitly..  Number() , String()  , Boolean().
+
+//constructor(Built-in) is just like a normal function..
+// WHAT differntiate constructor from a normal function ..Constructor naming convention in js is upperCase which make differnce from normal function or regular function from constructor...
+
+// Constructor is especially for complex Objects in js . Constructor provides features to access properties and methods.
+
+//NOTE: PRIMITIVE TYPES DOESNOT HAVE properties and methods like Objects... REMENBER ONLY OBJECTS HAS PROPERTIES AND METHODS IN JAVASCRIPT ....PRIMITIVES VALUES DOESNOT HAVE ...BUT IT DEPENDS UPON..SO IN THIS CASE CONSTRUCTOR IS VERY USEFUL ..
+
+//WHAT IS WRAPPER OBJECTS?   WRAPPER OBJECTS ARE SPECIAL TYPES OF OBJECTS WHICH GIVES ACCESS OF PRIMITIVE VALUES (STRING,NUMBER AND BOOLEAN) TO PRIMITIVE VALUES BECAUSE PRIMITIVE VALUES THEY DONT HAVE THEIR OWN  METHODS AND PROPERTIES.
+
+// WHY IT IS CALLED A WRAPPER OBJECT? ... BECAUSE WRAPPER OBJECT WRAPS PRIMITIVE VALUES INSIDE IT TO MAKE IT LIKE A OBJET TYPE SO THAT WE CAN GET TO ACCESS PROPERTIES AND METHODS OF JS .. AND AFTER USING IT WRAPPER OBJECT WILL DISCARD AUTOMATICALLY FROM OBJECT TYPES AND RETURN PRIMITIVE VALUES..
+
+// WRAPPER OBJECT: 2 TYPES .... 1.IMPLICIT WRAPPER OBJECT   2. EXPLICIT WRAPPER OBJECT
+
+//1: implict wrapper object;  This is implicit wrapper Object because  variable x get access of method toUpperCase() ;  how?   we know  x is a normal "suman" string primitive value which they dont have their own methods and properties , but in js progarmming .js engine will internaly wrap string value "suman" and convert it into String() object for a whlile to give access to methods and it will return primitive value and dicard the Object . Implicit wrapper object will not return object type value . 
+let x = "suman";
+console.log(x.toUpperCase(), x instanceof Object , x instanceof String);
+
+//2: Explicit wrapper Object  in 2 ways:
+
+
+//1: Explicit wrapper Object using Constructor... this is explicit wrapper using String primitive crossponding String() constructor..but still it is not a instanceof Object , because we didnt use new keyword and this String() constructor will return  "string" primitive value..
+  let y = String(12);
+  console.log(y,y.length, y instanceof Object);  // false
+
+// 2: second way to create Explicit wrapper Object ... HERE z variable is a explicit wrapper object and z is instanceof Object because here new keyword is used with Number primitives for Number() and in js "new" operator will invoke the constructor function and creates object instance here it will return object type output which will not be discarded...
+
+   let z = new Number(true);
+console.log(z, z instanceof Object , z instanceof Number, z.valueOf());
+//
+console.log( x === y);  // false
+console.log( y === z);  // false
+
+//
+
+let a = new Boolean(0);
+console.log(a , a instanceof Boolean , a.toString());
+
+//
+
+console.log(z === a);
+
+
+
+//PRIMITIVE TYPES AND THEIR CORRESPONDING CONSTRUCTOR ..
+//1:  String() constructor for string primitives "string";
+//2: Number()  constructor for number primitives 1,2,3;
+//3:  Boolean()  constructor for Boolean primitives yes,no true,false
+
+
 // Purpose of Constructors in JavaScript
 // The primary purpose of constructors in JavaScript is to provide a way to create and initialize objects. Specifically, they are used for:
 

@@ -42,9 +42,6 @@
 // The backslash (\) serves as the escape character in many programming languages, allowing programmers to include special characters in strings using escape sequences. These sequences represent things like newlines, tabs, and even Unicode characters, which would otherwise be difficult or impossible to include directly in a string. The escape character plays a critical role in formatting and structuring text data in programs.
 
 
-
-
-
 // Escape Character in ASCII
 
 // In the ASCII character set, the ESC (escape) character was defined as a special control character (ASCII code 27) with the purpose of marking the start of a control sequence. This was especially useful in contexts like text terminals and printers, where certain sequences of characters needed to be interpreted differently from regular characters.
