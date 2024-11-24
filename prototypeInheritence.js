@@ -13,50 +13,50 @@
 
 // PROTOTYPE IS A OBJECT PROPERTY INTERNAL HIDDEN PROPERTY ,FROM WHICH INHERITANCE IS ENABLED TO SHARE PROPERTIES AND METHOD FROM ONE OBJECT TO ANOTOHER..
 
-Array.prototype.customMethod = function(){
+Array.prototype.customMethod = function () {
   console.log(`this 
            is
            a
            custom Prototype`);
 };
 
-let arr = ["custom prototype ","built in prototype"];
+let arr = ["custom prototype ", "built in prototype"];
 arr.customMethod();
 
 //
-Object.defineProperty(Array.prototype,"customMethodIs",{
-      value: function(){
+Object.defineProperty(Array.prototype, "customMethodIs", {
+  value: function () {
     console.log("CUSTOOM ARRAY PROTOTYPE");
-},
-  enumerable:false,
-    writable:true,
-      configurable:false
+  },
+  enumerable: false,
+  writable: true,
+  configurable: false
 });
- let array = [1,2,3];
- array.customMethodIs();
+let array = [1, 2, 3];
+array.customMethodIs();
 
 // prototype enables inheritance in j.s
 //[[Prototype]] is a internal property of javascript which forms a prototype chain in objects
 
 // creating a js Object person
 const person = {
-  name:"javascript",
-  greet(){
+  name: "javascript",
+  greet() {
     console.log(`Hello my name is , ${this.name}`);
   }
 };
 
 // creating new object that inherites properties from person object:
 
-const newPerson  = Object.create(person);
+const newPerson = Object.create(person);
 newPerson.name = "thapa";   // overriding name property
 newPerson.greet();
 
 //  NOTE: Even though [[prototype]] is internal property of object we cannot access it directly so we need .__proto__
 
 const dog = {
-  breed:"labrador",
-  bark (){
+  breed: "labrador",
+  bark() {
     console.log("woof!");
   }
 };
@@ -69,9 +69,9 @@ myDog.name = "Bhotey kukur";
 
 // Object.assign();
 
-const source = {a:1, b:2};
-const target = {b:4, c:5};
-const returnTarget = Object.assign(target,source);
+const source = { a: 1, b: 2 };
+const target = { b: 4, c: 5 };
+const returnTarget = Object.assign(target, source);
 console.log(target);
 
 console.log(returnTarget === target);
@@ -88,12 +88,14 @@ console.log(returnedTarget2 === target2);
 // Expected output: true
 
 //Note: we can set prototype from one object to another object using .__proto__ to give access to properties and methods of objects
-let a = { name2:"docker",language:'typescript',
-  run:()=>{alert(" self run")}};   // this run overrides
+let a = {
+  name2: "docker", language: 'typescript',
+  run: () => { alert(" self run") }
+};   // this run overrides
 console.log(a);
 
-let p = {run:()=>{alert("run")}};
-p.__proto__ = {name:"web3"}
+let p = { run: () => { alert("run") } };
+p.__proto__ = { name: "web3" }
 a.__proto__ = p
 a.run();
 console.log(a.name);
@@ -102,7 +104,7 @@ console.log(a.name);
 // 
 let obj = {};
 let obj2 = new Object();
-console.log(obj,obj2);
+console.log(obj, obj2);
 
 console.log(obj.__proto__ === Object.prototype); //true
 
@@ -124,10 +126,10 @@ console.log(x.typeof === Function.prototype.typeof);
 
 
 // we write code in codebase:
-let arr = [1,2,3];
+let arr = [1, 2, 3];
 
 //internally by js engine code will be executed using constructor:
- let arr1 = new Array([1,2,3]);
+let arr1 = new Array([1, 2, 3]);
 
 console.log(arr);
 console.log(arr1);
@@ -145,7 +147,7 @@ console.log(arr.__proto__.__proto__.__proto__);
 console.log(Object.prototype.__proto__);
 
 //
-function f(){};
+function f() { };
 console.log(f.__proto__ === Function.prototype);
 
 // true,  inherits from objects
@@ -183,22 +185,22 @@ console.log(num.typeof === Number.typeof);
 // polyfill  for   Object.setPrototypeOf()
 
 // Object.setPrototypeOf()
-let cat = {breed:"Dhadey"};
-let myCat = {name:"surii"};
-Object.setPrototypeOf(myCat,cat);
+let cat = { breed: "Dhadey" };
+let myCat = { name: "surii" };
+Object.setPrototypeOf(myCat, cat);
 console.log(myCat.name);
 console.log(myCat["name"]);
 console.log(myCat["breed"]);
 
 
 //Object.create();
-let x = {name:"suman",grade:"masters"};
+let x = { name: "suman", grade: "masters" };
 let y = Object.create(x);
 console.log(y);
 console.log(y.grade);
 console.log(y.name);
 console.log(y instanceof Object);  // true
-console.log(typeof y , typeof x);  // object object
+console.log(typeof y, typeof x);  // object object
 
 // javascript everything is an object..
 
@@ -211,13 +213,13 @@ let number = new Number();
 
 
 // setting prototype 
-function Animal (name) {
+function Animal(name) {
   this.name = name;
 };
 
 // Adding the method to the prototype of Animal.
 
-Animal.prototype.sayHello = function(){
+Animal.prototype.sayHello = function () {
   console.log(`Hi my name is ${this.name}`)
 };
 
@@ -226,32 +228,44 @@ dog.sayHello();
 
 // syntax:Object.setPrototypeOf(object,prototype) = [[prototype]] internally;
 
-  let food = {typesofFood:"italian food"};
-  let itallian = {foodName:"manchurin"};
-  let set = Object.setPrototypeOf(food,itallian);
+let food = { typesofFood: "italian food" };
+let itallian = { foodName: "manchurin" };
+let set = Object.setPrototypeOf(food, itallian);
 
 console.log(set.typesofFood, set.foodName,);
 
 
 // Object.create();
-  let create = {course:"javascript"};
-  let pro = Object.create(create);
-    console.log(pro.course);   // javascript
+let create = { course: "javascript" };
+let pro = Object.create(create);
+console.log(pro.course);   // javascript
 
 // setting prototype:
 
 //constructor function
-function Car(model){
+function Car(model) {
   this.model = model;
 };
 
 //setting method using prototype  to constructor function
-Car.prototype.drive = function(){
+Car.prototype.drive = function () {
   console.log(`i love to drive ${this.model} car`);
 };
 
-const carModel  =  new Car ("Lexus");
+const carModel = new Car("Lexus");
 carModel.drive();
+
+
+// Object.assign()
+let x = { name: "suman", caste: "thapa" };
+let y = { address: "butwal", profession: "Fullstack" };
+let z = Object.assign(x, y);
+
+console.log(z);
+console.log(z === x);
+console.log(y === z);
+
+
 
 
 
