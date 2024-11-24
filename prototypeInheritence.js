@@ -99,4 +99,171 @@ a.run();
 console.log(a.name);
 
 
+// 
+let obj = {};
+let obj2 = new Object();
+console.log(obj,obj2);
+
+console.log(obj.__proto__ === Object.prototype); //true
+
+console.log(obj.__proto__.toString === Object.prototype.toString);  //true
+
+console.log(obj.toString === obj2.__proto__.toString); //true
+
+console.log(Object.__proto__ === Object.prototype); //false
+
+console.log(Object.prototype.__proto__);  //null
+console.log(Object.__proto__);  // {}
+
+
+// for Function...
+let x = Function();
+console.log(x.__proto__ === Function.prototype);
+console.log(x.__proto__.__proto__ === Object.prototype);
+console.log(x.typeof === Function.prototype.typeof);
+
+
+// we write code in codebase:
+let arr = [1,2,3];
+
+//internally by js engine code will be executed using constructor:
+ let arr1 = new Array([1,2,3]);
+
+console.log(arr);
+console.log(arr1);
+
+//inherits from Array.prototype
+console.log(arr.__proto__ === Array.prototype);  //true
+
+// now form Object.prototype;
+console.log(arr.__proto__.__proto__ === Object.prototype); //true;
+
+// now from the top ;
+console.log(arr.__proto__.__proto__.__proto__ === Object.prototype.__proto__);  //true
+
+console.log(arr.__proto__.__proto__.__proto__);
+console.log(Object.prototype.__proto__);
+
+//
+function f(){};
+console.log(f.__proto__ === Function.prototype);
+
+// true,  inherits from objects
+console.log(f.__proto__.__proto__ === Object.prototype);
+
+
+//  for string 
+let x = "is String";
+console.log(x.__proto__ === String.prototype);
+console.log(x.__proto__.__proto__ === Object.prototype);
+console.log(x.__proto__.__proto__.__proto__ === null);
+
+console.log(x.valueOf === String.prototype.valueOf);
+console.log(x.toUpperCase === String.prototype.toUpperCase);
+console.log(x.toLowerCase === String.prototype.toLowerCase);
+console.log(x.concat === String.prototype.concat);
+console.log(x.toUpperCase === String.prototype.toUpperCase);
+
+
+console.log(String.prototype.__proto__.__proto__ === null);
+
+
+//for number
+
+let num = 1;
+console.log(num.__proto__ === Number.prototype);
+console.log(num.indexOf === Number.indexOf)
+console.log(num.indexOf === Number.__proto__indexOf);
+console.log(num.__proto__.indexOf === Number.indexOf);
+console.log(num.typeof === Number.typeof);
+
+
+//NOTE: IN JS DELEGATION MEANS: PROTOTYPE IS LIKE DELEGATION SHARE POWERS OF ONE OBJECT TO ANOTHER, OR ALSO WE CAN SAY SHARES RESPONSIBILITIES OR ASSIGN DUTIES..
+
+// polyfill  for   Object.setPrototypeOf()
+
+// Object.setPrototypeOf()
+let cat = {breed:"Dhadey"};
+let myCat = {name:"surii"};
+Object.setPrototypeOf(myCat,cat);
+console.log(myCat.name);
+console.log(myCat["name"]);
+console.log(myCat["breed"]);
+
+
+//Object.create();
+let x = {name:"suman",grade:"masters"};
+let y = Object.create(x);
+console.log(y);
+console.log(y.grade);
+console.log(y.name);
+console.log(y instanceof Object);  // true
+console.log(typeof y , typeof x);  // object object
+
+// javascript everything is an object..
+
+// code we write in IDE ..
+let number = 0;
+
+// but javascript engine will internally wrapp it into Number object , wrapper objet to give access 
+
+let number = new Number();
+
+
+// setting prototype 
+function Animal (name) {
+  this.name = name;
+};
+
+// Adding the method to the prototype of Animal.
+
+Animal.prototype.sayHello = function(){
+  console.log(`Hi my name is ${this.name}`)
+};
+
+const dog = new Animal("buddy");
+dog.sayHello();
+
+// syntax:Object.setPrototypeOf(object,prototype) = [[prototype]] internally;
+
+  let food = {typesofFood:"italian food"};
+  let itallian = {foodName:"manchurin"};
+  let set = Object.setPrototypeOf(food,itallian);
+
+console.log(set.typesofFood, set.foodName,);
+
+
+// Object.create();
+  let create = {course:"javascript"};
+  let pro = Object.create(create);
+    console.log(pro.course);   // javascript
+
+// setting prototype:
+
+//constructor function
+function Car(model){
+  this.model = model;
+};
+
+//setting method using prototype  to constructor function
+Car.prototype.drive = function(){
+  console.log(`i love to drive ${this.model} car`);
+};
+
+const carModel  =  new Car ("Lexus");
+carModel.drive();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
