@@ -1,5 +1,12 @@
 //WHAT IS THE DIFFERENCE BETWEEN __porto__  vs  prototype
 
+// NOTE: __proto__ is just the accessor property on an object. A property access for __proto__ that eventually consults the object
+//NOTE: prototype is the consisting of getter and setter function.prototype will find this property , but an access that doesnot consult object .
+
+//__proto__ is the non-standard property that used to access the prototype of an object.
+//__proto__ is not officialy the part of javascript language specification 
+
+
 // It is not part of the official ECMAScript specification. Historically, __proto__ was an implementation detail of certain JavaScript engines (such as SpiderMonkey and V8). It was not intended to be accessed directly, and in fact, in the early versions of JavaScript, the prototype mechanism was not exposed as part of the public API.
 // However, many modern browsers and JavaScript engines added support for it, and it became widely used by developers, though it was not part of the original ECMAScript standard.
 // The use of double underscores (__) is why it’s called "dunder."
